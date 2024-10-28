@@ -209,9 +209,9 @@ class Server:
 
         tasks = []
         if self.rfc2136_port:
-            tasks.extend(await self.get_dns_server_tasks())
+            tasks.append(asyncio.create_task(self.get_dns_server_tasks()))
         if self.http_port:
-            tasks.extend(await self.get_http_server_tasks())
+            tasks.append(asyncio.create_task(self.get_http_server_tasks()))
 
         logging.debug('%s' % tasks)
         await asyncio.wait(tasks)

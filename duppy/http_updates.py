@@ -528,4 +528,4 @@ before you can make use of this service.</a>.
         logging.debug('Starting HttpApiServer on %s:%s'
             % (self.duppy.listen_on, self.duppy.http_port))
 
-        return self.site.start()
+        return await self.site.start()
